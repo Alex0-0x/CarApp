@@ -2,56 +2,57 @@
 using System.Runtime.Intrinsics.X86;
 using System;
 
-const string VERSION = "Car app ver. 0.1 ";
+const string HEADLINE = "Type Grouping";
+
+#region CarApp
+
+//CarDefect[] carDefectsList = new CarDefect[]
+//{
+//    new CarDefect("fiat", "punto", new DateOnly(2010,1,1), "Udstøning"),
+//    new CarDefect("alfa romeo", "giulia", new DateOnly(2019, 8, 1), "Styretøjet")
+//};
+
+//string carBrand;
+//string carModel;
+//DateOnly carProductionDate;
+//DateOnly carRegistrationDate;
+//DateOnly carLastCheckupDate;
 
 
-CarDefect[] carDefectsList = new CarDefect[]
-{
-    new CarDefect("fiat", "punto", new DateOnly(2010,1,1), "Udstøning"),
-    new CarDefect("alfa romeo", "giulia", new DateOnly(2019, 8, 1), "Styretøjet")
-};
+//do
+//{
+//    ResetScreen();
+//    Console.Write("Car Mærke : ");
+//}
+//while (string.IsNullOrEmpty(carBrand = Console.ReadLine()));
 
-string carBrand;
-string carModel;
-DateOnly carProductionDate;
-DateOnly carRegistrationDate;
-DateOnly carLastCheckupDate;
+//do
+//{
+//    ResetScreen();
+//    Console.Write("Car Model : ");
+//}
+//while (string.IsNullOrEmpty(carModel = Console.ReadLine()));
 
+//GetDateFromUser("Productions", out carProductionDate);
+//GetDateFromUser("Registraring", out carRegistrationDate);
+//GetDateFromUser("Sidste syn", out carLastCheckupDate);
 
-do
-{
-    ResetScreen();
-    Console.Write("Car Mærke : ");
-}
-while (string.IsNullOrEmpty(carBrand = Console.ReadLine()));
+//ResetScreen();
 
-do
-{
-    ResetScreen();
-    Console.Write("Car Model : ");
-}
-while (string.IsNullOrEmpty(carModel = Console.ReadLine()));
+//Checkup checkup = new Checkup(carRegistrationDate, carLastCheckupDate);
 
-GetDateFromUser("Productions", out carProductionDate);
-GetDateFromUser("Registraring", out carRegistrationDate);
-GetDateFromUser("Sidste syn", out carLastCheckupDate);
+//if (checkup.NeedsCheckup) Console.WriteLine("Bilen skal til syn");
+//else Console.WriteLine("Bilen skal ikke til syn");
 
-ResetScreen();
-
-Checkup checkup = new Checkup(carRegistrationDate, carLastCheckupDate);
-
-if (checkup.NeedsCheckup) Console.WriteLine("Bilen skal til syn");
-else Console.WriteLine("Bilen skal ikke til syn");
-
-foreach (CarDefect defect in carDefectsList)
-{
-    if (carBrand.ToLower() == defect.Brand && carModel.ToLower() == defect.Model && carProductionDate < defect.ProductionDate)
-    {
-        Console.WriteLine($"Bilen har følgende fabriksfejl: {defect.Defect}");
-        break;
-    }
-}
-
+//foreach (CarDefect defect in carDefectsList)
+//{
+//    if (carBrand.ToLower() == defect.Brand && carModel.ToLower() == defect.Model && carProductionDate < defect.ProductionDate)
+//    {
+//        Console.WriteLine($"Bilen har følgende fabriksfejl: {defect.Defect}");
+//        break;
+//    }
+//}
+#endregion
 
 
 
@@ -60,7 +61,7 @@ foreach (CarDefect defect in carDefectsList)
 static void ResetScreen()
 {
     Console.Clear();
-    Console.WriteLine(VERSION);
+    Console.WriteLine(HEADLINE);
     for (int i = Console.WindowWidth - 1; i >= 0; i--)
         Console.Write("=");
 }
