@@ -1,6 +1,17 @@
 ﻿using CarApp;
+using CarApp.Codes;
 using System.Runtime.Intrinsics.X86;
 using System;
+using Microsoft.Extensions.DependencyInjection;
+using CarApp.Codes.Interface;
+
+var serviceProvider = new ServiceCollection()
+    .AddSingleton<IHovedForloeb, H1>()
+    .AddSingleton<Search>()
+    .BuildServiceProvider();
+
+Search search = serviceProvider.GetService<Search>()!;
+Console.WriteLine(search.GetTeachers()[1]);
 
 const string HEADLINE = "Type Grouping";
 
